@@ -18,15 +18,15 @@ class FinalApp extends StatelessWidget {
     return MaterialApp(
       title: 'Final APP',
       theme: ThemeData(
-        colorScheme: const ColorScheme(background: Color.fromARGB(255, 159, 10, 234), brightness: Brightness.light, primary: Color.fromARGB(255, 141, 234, 226), onPrimary: Color.fromARGB(255, 0, 0, 0), secondary: Color.fromARGB(255, 133, 13, 13), onSecondary: Color.fromARGB(255, 159, 10, 234), error: Color.fromARGB(255, 159, 10, 234), onError: Color.fromARGB(255, 159, 10, 234), onBackground: Color.fromARGB(255, 234, 96, 10), surface: Color.fromARGB(255, 51, 205, 89), onSurface: Color.fromARGB(255, 40, 10, 234)),
+        colorScheme: const ColorScheme(background: Color.fromARGB(255, 159, 10, 234), brightness: Brightness.light, primary: Color.fromARGB(255, 19, 156, 210), onPrimary: Color.fromARGB(255, 0, 0, 0), secondary: Color.fromARGB(255, 133, 13, 13), onSecondary: Color.fromARGB(255, 182, 156, 195), error: Color.fromARGB(255, 159, 10, 234), onError: Color.fromARGB(255, 159, 10, 234), onBackground: Color.fromARGB(255, 234, 96, 10), surface: Color.fromARGB(255, 19, 156, 210), onSurface: Color.fromARGB(255, 97, 84, 177)),
       ),
-      home: FinalAppHome(),
+      home: const FinalAppHome(),
     );
   }
 }
 
 class FinalAppHome extends StatefulWidget{
-  FinalAppHome({super.key});
+  const FinalAppHome({super.key});
   @override
   _Finhome createState() => _Finhome();
 }
@@ -175,16 +175,25 @@ class _FinaslRectstate extends State<FinaslRect>{
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Text(' ', textScaleFactor: 0.8,),
-            TextField(
-              controller: lengthController,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(labelText: 'Masukkan Panjang'),
+            Text(' ', textScaleFactor: 1.2,),
+            SizedBox(
+              width: 360,
+              child: TextField(
+                controller: lengthController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  labelText: 'Masukkan Panjang', contentPadding: EdgeInsets.symmetric(horizontal: 10)
+                ), 
+              ),
             ),
-            TextField(
-              controller: widthController,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(labelText: 'Masukkan Lebar'),
+            Text(' ', textScaleFactor: 1.2,),
+            SizedBox(
+              width: 360,
+              child: TextField(
+                controller: widthController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(labelText: 'Masukkan Lebar', contentPadding: EdgeInsets.symmetric(horizontal: 10)),
+              ),
             ),
             SizedBox(height: 20),
             ElevatedButton(
@@ -243,11 +252,14 @@ class _FinaslCircstate extends State<FinaslCirc>{
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Text(' ', textScaleFactor: 0.8,),
-            TextField(
-              controller: controlluas,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(labelText: 'Masukkan Jari-Jari Lingkaran'),
+            Text(' ', textScaleFactor: 1.2,),
+            SizedBox(
+              width: 360,
+              child:TextField(
+                controller: controlluas,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(labelText: 'Masukkan Jari-Jari Lingkaran', contentPadding: EdgeInsets.symmetric(horizontal: 10)),
+              ),
             ),
             SizedBox(height: 20),
             ElevatedButton(
@@ -271,41 +283,48 @@ class _FinaslCircstate extends State<FinaslCirc>{
   }
 }
 
+
+
 final Uri _url = Uri.parse('https://www.youtube.com/watch?v=Rc0nnzxeIng');
 final Uri _url2 = Uri.parse('https://maps.app.goo.gl/KAjF8NDoEeoapSu56');
+final Uri _url3 = Uri.parse('https://www.pictureofhotdog.com/about');
 
 class Finalabout extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Tentang Developer'),
-      ),
       body: Container(
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage('assets/ark.jpg'), fit: BoxFit.cover, colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.3), BlendMode.dstATop)),
+          image: DecorationImage(image: AssetImage('assets/ark.jpg'), fit: BoxFit.cover, colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.dstATop)),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Text(''),
-            Text('Tentang Saya, Seorang Developer Pemula', textAlign: TextAlign.center, textScaleFactor: 1.3),
+            Text(' ', textScaleFactor: 10.3),
+            Text('Tentang Saya, Seorang Developer Pemula', textAlign: TextAlign.center, textScaleFactor: 1.3,),
             Text(' ', textScaleFactor: 1),
-            Image.asset("assets/images.jpg"),
+            CircleAvatar(
+              radius: 80,
+              backgroundImage: AssetImage("assets/prof.jpg"),
+            ),
             Text(' ', textScaleFactor: 0.8),
             Text('Nama : Gazali Rahman'),
-            Text(' ', textScaleFactor: 0.2),
+            Text(' ', textScaleFactor: 0.3),
             Text('NPM : 2310020144'),
-            Text(' ', textScaleFactor: 0.2),
+            Text(' ', textScaleFactor: 0.3),
             Text('Kelas : 5A Nonreg BJM'),
-            Text(' ', textScaleFactor: 0.2),
+            Text(' ', textScaleFactor: 0.3),
             GestureDetector(
               onTap: () {
                 _launchUrl;
               },
+              onDoubleTap: () {
+                _launchUrl3;
+              },
               child: Text(
-                'Contact : ephraimgazali@gmail.com', style: TextStyle(
+                'e-Mail : ephraimgazali@gmail.com', style: TextStyle(
                   color: Colors.blue
                 ),
               ),
@@ -314,6 +333,12 @@ class Finalabout extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 _launchUrl2;
+              },
+              onDoubleTap: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => _buildNotificationPopup(context),
+                );
               },
               child: Text(
                 'Alamat : Jl. HKSN Komp. Surya Gemilang Blok M No. 37', style: TextStyle(
@@ -347,4 +372,22 @@ Future<void> get _launchUrl2 async {
   }
 }
 
+Future<void> get _launchUrl3 async {
+  if (!await launchUrl(_url3)) {
+    throw Exception('Could not launch $_url');
+  }
+}
+
+Widget _buildNotificationPopup(BuildContext context) {
+  return AlertDialog(
+    title: Text('Nice!'),
+    content: Text('A Nice Message'),
+    actions: [
+      TextButton(
+        child: Text('Tutup Saja Lah'),
+        onPressed: () => Navigator.pop(context),
+      ),
+    ],
+  );
+}
 
